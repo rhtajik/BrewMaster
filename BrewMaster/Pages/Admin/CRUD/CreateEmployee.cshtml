@@ -1,0 +1,10 @@
+﻿@page
+@model CreateEmployeeModel
+<h2>Opret Medarbejder</h2>
+<form method="post">
+    <label for="name">Navn</label>
+    <input asp-for="Employee.Name" />
+    <label for="password">Adgangskode</label>
+    <input asp-for="Employee.Password" />
+    <button type="submit">Opret</button>
+</form>

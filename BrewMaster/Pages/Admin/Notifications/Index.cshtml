@@ -1,0 +1,24 @@
+﻿@page
+@model NotificationsModel
+<h2>Notifikationer</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Beskrivelse</th>
+            <th>Ansvarlig</th>
+            <th>Dato</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var notification in Model.Notifications)
+        {
+            <tr>
+                <td>@notification.NotificationType</td>
+                <td>@notification.Description</td>
+                <td>@notification.ResponsibleEmployee</td>
+                <td>@notification.NotificationDate</td>
+            </tr>
+        }
+    </tbody>
+</table>

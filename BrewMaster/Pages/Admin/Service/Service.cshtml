@@ -1,0 +1,31 @@
+﻿@page
+@model ServiceModel
+<h2>Service</h2>
+<p>Her kan du finde oplysninger om service af maskiner.</p>
+<table>
+    <thead>
+        <tr>
+            <th>Maskine</th>
+            <th>Placering</th>
+            <th>Seneste service</th>
+            <th>Antal brug</th>
+            <th>Handling</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var machine in Model.Machines)
+        {
+            <tr>
+                <td>@machine.Id</td>
+                <td>@machine.Place</td>
+                <td>@machine.LatestService.ToShortDateString()</td>
+                <td>@machine.AmountUsed</td>
+                <td>
+                    <form method="post" asp-page-handler="Service" asp-route-id="@machine.Id">
+                        <button type="submit">Marker som serviceret</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

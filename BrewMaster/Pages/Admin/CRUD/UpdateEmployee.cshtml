@@ -1,0 +1,11 @@
+﻿@page
+@model UpdateEmployeeModel
+<h2>Opdater Medarbejder</h2>
+<form method="post">
+    <input type="hidden" asp-for="Employee.Id" />
+    <label for="name">Navn</label>
+    <input asp-for="Employee.Name" />
+    <label for="password">Adgangskode</label>
+    <input asp-for="Employee.Password" />
+    <button type="submit">Opdater</button>
+</form>

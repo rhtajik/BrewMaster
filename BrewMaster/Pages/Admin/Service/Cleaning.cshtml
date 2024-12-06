@@ -1,0 +1,29 @@
+﻿@page
+@model CleaningModel
+<h2>Rengøring</h2>
+<p>Her kan du finde oplysninger om rengøring af maskiner.</p>
+<table>
+    <thead>
+        <tr>
+            <th>Maskine</th>
+            <th>Placering</th>
+            <th>Seneste rengøring</th>
+            <th>Handling</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var machine in Model.Machines)
+        {
+            <tr>
+                <td>@machine.Id</td>
+                <td>@machine.Place</td>
+                <td>@machine.LatestClean.ToShortDateString()</td>
+                <td>
+                    <form method="post" asp-page-handler="Clean" asp-route-id="@machine.Id">
+                        <button type="submit">Marker som rengjort</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
